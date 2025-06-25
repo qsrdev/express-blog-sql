@@ -5,7 +5,7 @@ const router = express.Router();
 
 //index
 router.get("/", postController.index);
-//lettura singolo studente //SHOW
-// router.get("/:id", postController.show);
+//lettura singolo post //SHOW
+router.get("/:id", postController.show);
 
 export default router;
