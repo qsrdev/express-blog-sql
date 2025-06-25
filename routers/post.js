@@ -7,5 +7,7 @@ const router = express.Router();
 router.get("/", postController.index);
 //lettura singolo post //SHOW
 router.get("/:id", postController.show);
+//destroy
+router.delete("/:id", postController.destroy);
 
 export default router;

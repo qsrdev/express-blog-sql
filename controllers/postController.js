@@ -1,5 +1,6 @@
 import connection from "../db.js";
 
+//index
 const index = (req, res) => {
   const sql = "SELECT * FROM posts";
 
@@ -18,6 +19,7 @@ const index = (req, res) => {
   });
 };
 
+//show
 const show = (req, res) => {
   const id = req.params.id;
   const sql = "SELECT * FROM posts WHERE id = ?;";
@@ -35,9 +37,25 @@ const show = (req, res) => {
   });
 };
 
-const controller = {
-  index,
-  show,
+//destroy
+const destroy = (req, res) => {
+  const id = req.params.id;
+  const sql = "DELETE FROM posts WHERE id = ?;";
+
+  connection.query(sql, [id], (err, results) => {
+    if (err) {
+      res.status(404).json({
+        errore: `Post non trovato`,
+      });
+    } else {
+      console.log(results);
+      res.status(204).json({
+        info: `cancellato il post n${id}`,
+      });
+    }
+  });
 };
+
+const controller = { index, show, destroy };
 
 export default controller;
