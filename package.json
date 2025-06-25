@@ -1,0 +1,16 @@
+{
+  "name": "express-blog-sql",
+  "version": "1.0.0",
+  "description": "Task 25/06/2025",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch app.js"
+  },
+  "author": "Matteo Albertini",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.14.1"
+  }
+}
