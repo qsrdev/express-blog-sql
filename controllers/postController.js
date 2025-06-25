@@ -4,11 +4,17 @@ const index = (req, res) => {
   const sql = "SELECT * FROM posts";
 
   connection.query(sql, (err, result) => {
-    res.json({
-      info: "Stampo le ricette",
-      totalcount: result.length,
-      data: result,
-    });
+    if (result.length == 0) {
+      res.status(404).json({
+        error: "post non trovato",
+      });
+    } else {
+      res.status(200).json({
+        info: "Stampo le ricette",
+        totalcount: result.length,
+        data: result,
+      });
+    }
   });
 };
 
